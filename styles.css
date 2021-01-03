@@ -1,0 +1,16 @@
+ol.breadcrumb {
+  padding: 0;
+}
+ol.breadcrumb li {
+  list-style-type: none;
+  display: inline;
+}
+ol.breadcrumb li a {
+  text-decoration: none;
+}
+
+ol.breadcrumb li+li:before {
+  padding: 8px;
+  color: black;
+  content: "»";
+}

@@ -27,6 +27,9 @@ const useStyles = makeStyles(theme => ({
   },
   sitename: {
     fontSize: 18,
+    [theme.breakpoints.down('md')]: {
+      display: 'none',
+    }
   },
   search: {
     position: 'relative',
@@ -65,6 +68,11 @@ const useStyles = makeStyles(theme => ({
       width: '20ch',
     },
   },
+  button: {
+    [theme.breakpoints.down('md')]: {
+      fontSize: 10
+    }
+  }
 }))
 
 const MainMenu = () => {
@@ -93,7 +101,7 @@ const MainMenu = () => {
           </div>
         </Grid>
         <Grid>
-          <Button color="primary" variant="contained" href="/api/auth/signin">Sign in</Button>
+          <Button className={classes.button} color="primary" variant="contained" href="/api/auth/signin">Sign in</Button>
         </Grid>
       </Toolbar>
     </AppBar >

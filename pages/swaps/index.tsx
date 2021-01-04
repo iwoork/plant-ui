@@ -27,7 +27,10 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     heading: {},
     filter: {
-      margin: theme.spacing(10, 2)
+      margin: theme.spacing(10, 0),
+      [theme.breakpoints.down('md')]: {
+        margin: theme.spacing(0)
+      },
     },
     avatar: {
       margin: '-50px auto 0 auto',
@@ -50,8 +53,7 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     icon: {
       fontSize: 12
-    }
-
+    },
   })
 )
 export default function Index() {

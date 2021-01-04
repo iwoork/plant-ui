@@ -28,7 +28,11 @@ const useStyles = makeStyles((theme: Theme) =>
         right: 0,
         position: 'absolute',
         zIndex: '-1'
-      }
+      },
+      [theme.breakpoints.down('md')]: {
+        padding: theme.spacing(10, 0),
+        height: 320,
+      },
     },
     actions: {
       margin: theme.spacing(5, 1),
@@ -40,7 +44,10 @@ const useStyles = makeStyles((theme: Theme) =>
       display: 'flex',
       justifyContent: 'center',
       alignItems: 'center',
-      fontWeight: 'bold'
+      fontWeight: 'bold',
+      [theme.breakpoints.down('md')]: {
+        fontSize: 30,
+      }
     }
   })
 );

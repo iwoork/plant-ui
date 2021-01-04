@@ -1,11 +1,11 @@
-# Next.js with TypeScript, Material UI, Next Auth example
+# Swap Plant UI
 
 ## How to use
 
 
 ```sh
-git clone https://github.com/iwoork/nextjs-typescript-material-ui-auth.git
-cd nextjs-typescript-material-ui-auth
+git clone https://github.com/iwoork/plant-ui.git
+cd plant-ui
 ```
 
 Install it and run:
@@ -14,7 +14,3 @@ Install it and run:
 npm install
 npm run dev
 ```
-
-## The idea behind the example
-
-[Next.js](https://github.com/zeit/next.js) is a framework for server-rendered React apps.

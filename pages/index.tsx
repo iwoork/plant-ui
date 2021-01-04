@@ -31,7 +31,8 @@ const useStyles = makeStyles((theme: Theme) =>
       }
     },
     actions: {
-      margin: theme.spacing(5, 1)
+      margin: theme.spacing(5, 1),
+      fontSize: 16,
     },
     heroText: {
       fontSize: 60,

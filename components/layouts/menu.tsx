@@ -1,4 +1,6 @@
 import React from 'react'
+import { GetServerSideProps } from "next";
+
 import {
   AuthTokens,
   useAuth,
@@ -80,9 +82,9 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-const MainMenu = (props: { initialAuth: AuthTokens }) => {
+const MainMenu = () => {
   const classes = useStyles()
-  const auth = useAuth(props.initialAuth);
+  const auth = useAuth(null);
   const { login, logout } = useAuthFunctions();
 
   return (

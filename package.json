@@ -5,6 +5,7 @@
   "dependencies": {
     "@material-ui/core": "latest",
     "@material-ui/icons": "^4.11.2",
+    "aws-cognito-next": "^3.0.0",
     "clsx": "latest",
     "mongodb": "^3.5.9",
     "next": "latest",

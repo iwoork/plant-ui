@@ -19,6 +19,7 @@ import Box from '@material-ui/core/Box';
 import FormGroup from '@material-ui/core/FormGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
+import SwapsList from '../../components/swaps/SwapsList';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -64,14 +65,14 @@ export default function Index() {
     setExpanded(isExpanded ? panel : false);
   };
 
-  const plants = [
+  const swaps = [
     {
       user: {
         name: 'Polina',
-        avatar: '/images/avatar/1.jpg'
-      },
-      listing: {
+        avatar: '/images/avatar/1.jpg',
         location: 'Toronto, CA',
+      },
+      product: {
         type: 'Cuttings',
         name: {
           scientific: 'Adiantum raddianum Fragrans',
@@ -87,10 +88,10 @@ export default function Index() {
     {
       user: {
         name: 'Efren',
-        avatar: '/images/avatar/2.jpg'
-      },
-      listing: {
+        avatar: '/images/avatar/2.jpg',
         location: 'Toronto, CA',
+      },
+      product: {
         type: 'Planted, Cuttings',
         name: {
           scientific: 'Aechmea "Blue Rain"',
@@ -106,10 +107,10 @@ export default function Index() {
     {
       user: {
         name: 'James',
-        avatar: '/images/avatar/3.jpg'
-      },
-      listing: {
+        avatar: '/images/avatar/3.jpg',
         location: 'Toronto, CA',
+      },
+      product: {
         type: 'Cuttings',
         name: {
           scientific: 'Aeschynanthus marmoratus',
@@ -125,10 +126,10 @@ export default function Index() {
     {
       user: {
         name: 'Anne',
-        avatar: '/images/avatar/4.jpg'
-      },
-      listing: {
+        avatar: '/images/avatar/4.jpg',
         location: 'Toronto, CA',
+      },
+      product: {
         type: 'Planted',
         name: {
           scientific: 'Aglaonema cutlass',
@@ -241,103 +242,9 @@ export default function Index() {
         <Grid item sm={10}>
           <Typography variant="h3" component="h1" gutterBottom>
             Swaps near you
-        </Typography>
+          </Typography>
           <Grid container>
-            {
-              plants.map((plant) =>
-                <Grid item sm={3}>
-                  <Card className={classes.plant}>
-                    <CardActionArea href={`/swaps/1`}>
-                      <CardMedia
-                        className={classes.media}
-                        image={plant.listing.image}
-                        title="Contemplative Reptile"
-                      />
-                      <Avatar className={classes.avatar} alt="Remy Sharp" src={plant.user.avatar} />
-                      <CardContent>
-                        <Typography className={classes.name} color="secondary" gutterBottom variant="h5" component="h2">
-                          {plant.listing.name.common}
-                        </Typography>
-                        <Typography gutterBottom variant="body1" component="h3">
-                          {plant.user.name} ({plant.listing.location}) <StarIcon className={classes.icon} /><StarIcon className={classes.icon} /><StarIcon className={classes.icon} /><StarIcon className={classes.icon} /><StarIcon className={classes.icon} />
-                        </Typography>
-                        <Typography gutterBottom variant="body2" component="p">
-                          <LoyaltySharpIcon className={classes.icon} /> {plant.listing.type}
-                        </Typography>
-                        <Typography gutterBottom variant="body2" component="p">
-                          <SwapHorizIcon className={classes.icon} /> Swap for {plant.listing.swap}
-                        </Typography>
-                        <Typography className={classes.description} variant="body2" color="textSecondary" component="p">
-                          {plant.listing.description}
-                        </Typography>
-                      </CardContent>
-                    </CardActionArea>
-                  </Card>
-                </Grid>
-              )
-            }
-          </Grid>
-          <Grid container>
-            {
-              plants.map((plant) =>
-                <Grid item sm={3}>
-                  <Card className={classes.plant}>
-                    <CardActionArea>
-                      <CardMedia
-                        className={classes.media}
-                        image={plant.listing.image}
-                        title="Contemplative Reptile"
-                      />
-                      <Avatar className={classes.avatar} alt="Remy Sharp" src={plant.user.avatar} />
-                      <CardContent>
-                        <Typography className={classes.name} color="secondary" gutterBottom variant="h5" component="h2">
-                          {plant.listing.name.common}
-                        </Typography>
-                        <Typography gutterBottom variant="body1" component="h3">
-                          {plant.user.name} ({plant.listing.location})
-                        </Typography>
-                        <Typography gutterBottom variant="body2" component="p">
-                          <LoyaltySharpIcon className={classes.icon} /> {plant.listing.type}
-                        </Typography>
-                        <Typography className={classes.description} variant="body2" color="textSecondary" component="p">
-                          {plant.listing.description}
-                        </Typography>
-                      </CardContent>
-                    </CardActionArea>
-                  </Card>
-                </Grid>
-              )
-            }
-            {
-              plants.map((plant) =>
-                <Grid item sm={3}>
-                  <Card className={classes.plant}>
-                    <CardActionArea>
-                      <CardMedia
-                        className={classes.media}
-                        image={plant.listing.image}
-                        title="Contemplative Reptile"
-                      />
-                      <Avatar className={classes.avatar} alt="Remy Sharp" src={plant.user.avatar} />
-                      <CardContent>
-                        <Typography className={classes.name} color="secondary" gutterBottom variant="h5" component="h2">
-                          {plant.listing.name.common}
-                        </Typography>
-                        <Typography gutterBottom variant="body1" component="h3">
-                          {plant.user.name} ({plant.listing.location})
-                      </Typography>
-                        <Typography gutterBottom variant="body2" component="p">
-                          <LoyaltySharpIcon className={classes.icon} /> {plant.listing.type}
-                        </Typography>
-                        <Typography className={classes.description} variant="body2" color="textSecondary" component="p">
-                          {plant.listing.description}
-                        </Typography>
-                      </CardContent>
-                    </CardActionArea>
-                  </Card>
-                </Grid>
-              )
-            }
+            <SwapsList swaps={swaps} />
           </Grid>
         </Grid>
       </Grid>

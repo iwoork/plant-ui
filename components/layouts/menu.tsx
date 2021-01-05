@@ -1,5 +1,10 @@
 import React from 'react'
-
+import {
+  AuthTokens,
+  useAuth,
+  useAuthFunctions,
+  getServerSideAuth,
+} from "../../auth";
 import { fade, makeStyles } from '@material-ui/core/styles'
 import AppBar from '@material-ui/core/AppBar'
 import Button from '@material-ui/core/Button'
@@ -75,8 +80,10 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-const MainMenu = () => {
+const MainMenu = (props: { initialAuth: AuthTokens }) => {
   const classes = useStyles()
+  const auth = useAuth(props.initialAuth);
+  const { login, logout } = useAuthFunctions();
 
   return (
     <AppBar color="secondary" className={classes.appbar} position="fixed">
@@ -101,11 +108,23 @@ const MainMenu = () => {
           </div>
         </Grid>
         <Grid>
-          <Button className={classes.button} color="primary" variant="contained" href="/api/auth/signin">Sign in</Button>
+          {auth ? (
+            <Button onClick={() => logout()} className={classes.button} color="primary" variant="contained">Sign out</Button>
+          ) : (
+              <Button onClick={() => login()} className={classes.button} color="primary" variant="contained">Sign in</Button>
+            )}
         </Grid>
       </Toolbar>
     </AppBar >
   )
 }
+
+export const getServerSideProps: GetServerSideProps<{
+  initialAuth: AuthTokens;
+}> = async (context) => {
+  const initialAuth = getServerSideAuth(context.req);
+
+  return { props: { initialAuth } };
+};
 
 export default MainMenu

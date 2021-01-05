@@ -3,6 +3,8 @@
   "version": "4.0.0",
   "private": true,
   "dependencies": {
+    "@aws-amplify/auth": "^3.4.16",
+    "@aws-amplify/core": "^3.8.8",
     "@material-ui/core": "latest",
     "@material-ui/icons": "^4.11.2",
     "aws-cognito-next": "^3.0.0",

@@ -4,6 +4,7 @@ module.exports = (phase) => {
   switch (phase) {
     case PHASE_DEVELOPMENT_SERVER:
       return {
+        target: "serverless",
         env: {
           IDP_DOMAIN: "swapplant.auth.us-east-1.amazoncognito.com",
           USER_POOL_ID: "us-east-1_KEN9Jr3kx",
@@ -15,6 +16,7 @@ module.exports = (phase) => {
       };
     default:
       return {
+        target: "serverless",
         env: {
           IDP_DOMAIN: "swapplant.auth.us-east-1.amazoncognito.com",
           USER_POOL_ID: "us-east-1_KEN9Jr3kx",

@@ -87,6 +87,7 @@ const MainMenu = () => {
   const auth = useAuth(null);
   const { login, logout } = useAuthFunctions();
 
+  console.log(auth);
   return (
     <AppBar color="secondary" className={classes.appbar} position="fixed">
       <Toolbar className={classes.toolbar}>

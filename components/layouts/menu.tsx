@@ -1,21 +1,21 @@
-import React from 'react'
-import { GetServerSideProps } from "next";
-
 import {
   AuthTokens,
+  getServerSideAuth,
   useAuth,
   useAuthFunctions,
-  getServerSideAuth,
 } from "../../auth";
 import { fade, makeStyles } from '@material-ui/core/styles'
+
 import AppBar from '@material-ui/core/AppBar'
 import Button from '@material-ui/core/Button'
-import Toolbar from '@material-ui/core/Toolbar'
-import Grid from '@material-ui/core/Grid'
-import Typography from '@material-ui/core/Typography'
-import InputBase from '@material-ui/core/InputBase'
 import EcoIcon from '@material-ui/icons/Eco'
+import { GetServerSideProps } from "next";
+import Grid from '@material-ui/core/Grid'
+import InputBase from '@material-ui/core/InputBase'
+import React from 'react'
 import SearchIcon from '@material-ui/icons/Search'
+import Toolbar from '@material-ui/core/Toolbar'
+import Typography from '@material-ui/core/Typography'
 
 const useStyles = makeStyles(theme => ({
   appbar: {
@@ -82,11 +82,17 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-const MainMenu = () => {
+interface IMenu {
+  initialAuth?: AuthTokens
+}
+
+const MainMenu = (props: IMenu) => {
   const classes = useStyles()
-  const auth = useAuth(null);
+  const { initialAuth } = props
+  const auth = useAuth(initialAuth || null);
   const { login, logout } = useAuthFunctions();
 
+  console.log('i', initialAuth);
   console.log(auth);
   return (
     <AppBar color="secondary" className={classes.appbar} position="fixed">

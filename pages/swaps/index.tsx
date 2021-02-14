@@ -1,24 +1,25 @@
-import React from 'react';
-import Grid from '@material-ui/core/Grid';
-import Typography from '@material-ui/core/Typography';
-import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
-import Container from '@material-ui/core/Container';
-import Card from '@material-ui/core/Card';
-import CardActionArea from '@material-ui/core/CardActionArea';
-import CardMedia from '@material-ui/core/CardMedia';
-import CardContent from '@material-ui/core/CardContent';
-import Avatar from '@material-ui/core/Avatar';
-import LoyaltySharpIcon from '@material-ui/icons/LoyaltySharp';
-import StarIcon from '@material-ui/icons/Star';
-import SwapHorizIcon from '@material-ui/icons/SwapHoriz';
+import { Theme, createStyles, makeStyles } from '@material-ui/core/styles';
+
 import Accordion from '@material-ui/core/Accordion';
 import AccordionDetails from '@material-ui/core/AccordionDetails';
 import AccordionSummary from '@material-ui/core/AccordionSummary';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import Avatar from '@material-ui/core/Avatar';
 import Box from '@material-ui/core/Box';
-import FormGroup from '@material-ui/core/FormGroup';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Card from '@material-ui/core/Card';
+import CardActionArea from '@material-ui/core/CardActionArea';
+import CardContent from '@material-ui/core/CardContent';
+import CardMedia from '@material-ui/core/CardMedia';
 import Checkbox from '@material-ui/core/Checkbox';
+import Container from '@material-ui/core/Container';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import FormGroup from '@material-ui/core/FormGroup';
+import Grid from '@material-ui/core/Grid';
+import LoyaltySharpIcon from '@material-ui/icons/LoyaltySharp';
+import React from 'react';
+import StarIcon from '@material-ui/icons/Star';
+import SwapHorizIcon from '@material-ui/icons/SwapHoriz';
+import Typography from '@material-ui/core/Typography';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -240,7 +241,7 @@ export default function Index() {
         </Grid>
         <Grid item sm={10}>
           <Typography variant="h3" component="h1" gutterBottom>
-            Swaps near you
+            Plant Swaps near you
           </Typography>
           <Grid container>
             {

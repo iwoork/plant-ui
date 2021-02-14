@@ -1,13 +1,14 @@
-import React from 'react';
-import Grid from '@material-ui/core/Grid';
-import Typography from '@material-ui/core/Typography';
-import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
-import Container from '@material-ui/core/Container';
-import TextField from '@material-ui/core/TextField';
-import MenuItem from '@material-ui/core/MenuItem';
-import FormControl from '@material-ui/core/FormControl';
-import Button from '@material-ui/core/Button';
+import { Theme, createStyles, makeStyles } from '@material-ui/core/styles';
+
 import Box from '@material-ui/core/Box';
+import Button from '@material-ui/core/Button';
+import Container from '@material-ui/core/Container';
+import FormControl from '@material-ui/core/FormControl';
+import Grid from '@material-ui/core/Grid';
+import MenuItem from '@material-ui/core/MenuItem';
+import React from 'react';
+import TextField from '@material-ui/core/TextField';
+import Typography from '@material-ui/core/Typography';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -71,6 +72,7 @@ export default function Index() {
                   <TextField
                     id="standard-select-currency"
                     label="I am located at"
+                    variant="outlined"
                     onChange={handleChange}
                     helperText="Enter your location"
                   />
@@ -84,6 +86,7 @@ export default function Index() {
                     id="standard-select-currency"
                     select
                     label="I have"
+                    variant="outlined"
                     onChange={handleChange}
                     helperText="Select your plant"
                   >
@@ -99,13 +102,14 @@ export default function Index() {
                 </Box>
               </Box>
             </Grid>
-            <Grid item sm={6}>
+            <Grid item sm={6} alignItems="center">
               <Box className={classes.plant}>
                 <FormControl component="fieldset" className={classes.formControl}>
                   <TextField
                     id="standard-select-currency"
                     select
                     label="Looking to swap for"
+                    variant="outlined"
                     onChange={handleChange}
                     helperText="Please select plant to swap for"
                   >

@@ -9,6 +9,7 @@ import { fade, makeStyles } from '@material-ui/core/styles'
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import AppBar from '@material-ui/core/AppBar'
 import Button from '@material-ui/core/Button'
+import Divider from "@material-ui/core/Divider";
 import EcoIcon from '@material-ui/icons/Eco'
 import { GetServerSideProps } from "next";
 import Grid from '@material-ui/core/Grid'
@@ -123,6 +124,7 @@ const MainMenu = (props: IMenu) => {
     >
       <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
       <MenuItem onClick={handleMenuClose}>My account</MenuItem>
+      <Divider light />
       <MenuItem onClick={() => logout()} >Logout</MenuItem>
     </Menu>
   );

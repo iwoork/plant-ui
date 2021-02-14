@@ -6,12 +6,16 @@ import {
 } from "../../auth";
 import { fade, makeStyles } from '@material-ui/core/styles'
 
+import AccountCircle from '@material-ui/icons/AccountCircle';
 import AppBar from '@material-ui/core/AppBar'
 import Button from '@material-ui/core/Button'
 import EcoIcon from '@material-ui/icons/Eco'
 import { GetServerSideProps } from "next";
 import Grid from '@material-ui/core/Grid'
+import IconButton from "@material-ui/core/IconButton";
 import InputBase from '@material-ui/core/InputBase'
+import Menu from "@material-ui/core/Menu";
+import MenuItem from "@material-ui/core/MenuItem";
 import React from 'react'
 import SearchIcon from '@material-ui/icons/Search'
 import Toolbar from '@material-ui/core/Toolbar'
@@ -91,9 +95,38 @@ const MainMenu = (props: IMenu) => {
   const { initialAuth } = props
   const auth = useAuth(initialAuth || null);
   const { login, logout } = useAuthFunctions();
+  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+
+  const isMenuOpen = Boolean(anchorEl);
 
   console.log('i', initialAuth);
   console.log(auth);
+
+  const handleProfileMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleMenuClose = () => {
+    setAnchorEl(null);
+  };
+
+  const menuId = 'primary-account-menu';
+  const renderMenu = (
+    <Menu
+      anchorEl={anchorEl}
+      anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
+      id={menuId}
+      keepMounted
+      transformOrigin={{ vertical: 'top', horizontal: 'right' }}
+      open={isMenuOpen}
+      onClose={handleMenuClose}
+    >
+      <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
+      <MenuItem onClick={handleMenuClose}>My account</MenuItem>
+      <MenuItem onClick={() => logout()} >Logout</MenuItem>
+    </Menu>
+  );
+
   return (
     <AppBar color="secondary" className={classes.appbar} position="fixed">
       <Toolbar className={classes.toolbar}>
@@ -118,12 +151,24 @@ const MainMenu = (props: IMenu) => {
         </Grid>
         <Grid>
           {auth ? (
-            <Button onClick={() => logout()} className={classes.button} color="primary" variant="contained">Sign out</Button>
+            <>
+              <IconButton
+                edge="end"
+                aria-label="account of current user"
+                aria-controls={menuId}
+                aria-haspopup="true"
+                onClick={handleProfileMenuOpen}
+                color="inherit"
+              >
+                <AccountCircle />
+              </IconButton>
+            </>
           ) : (
               <Button onClick={() => login()} className={classes.button} color="primary" variant="contained">Sign in</Button>
             )}
         </Grid>
       </Toolbar>
+      {renderMenu}
     </AppBar >
   )
 }

@@ -37,10 +37,9 @@ const useStyles = makeStyles((theme: Theme) =>
 )
 export default function Index() {
   const classes = useStyles();
-  const [expanded, setExpanded] = React.useState<string | false>('panel1');
 
-  const handleChange = (panel: string) => (_event: React.ChangeEvent<{}>, isExpanded: boolean) => {
-    setExpanded(isExpanded ? panel : false);
+  const handleChange = (_event: React.ChangeEvent<{}>) => {
+    console.log('test');
   };
 
   const plants = [
